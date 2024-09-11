@@ -16,13 +16,15 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Capture file access times BEFORE run
         shell: bash
         run: |
           ./get-file-access-times-before.sh
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
       - name: Install emsdk
         uses: mymindstorm/setup-emsdk@v14
         with:
