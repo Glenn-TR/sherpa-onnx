@@ -16,6 +16,8 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+      - name: Capture file access times BEFORE run
+        run: bash ./get-file-access-times-before.sh
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -55,6 +57,14 @@ jobs:
         shell: bash
         run: |
           ./build-wasm-simd-asr.sh
+
+      - name: Capture file access times AFTER run
+        run: bash ./get-file-access-times-after.sh
+      - name: Archive results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Work folder
+          path: WORK/
 
       - name: collect files
         shell: bash
