@@ -20,10 +20,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Capture file access times BEFORE run
-        shell: bash
-        run: |
-          ./get-file-access-times-before.sh
+#      - name: Capture file access times BEFORE run
+#        shell: bash
+#        run: |
+#          ./get-file-access-times-before.sh
 
       - name: Install emsdk
         uses: mymindstorm/setup-emsdk@v14
@@ -62,15 +62,15 @@ jobs:
         run: |
           ./build-wasm-simd-asr.sh
 
-      - name: Capture file access times AFTER run
-        shell: bash
-        run: |
-          ./get-file-access-times-after.sh
-      - name: Archive results
-        uses: actions/upload-artifact@v4
-        with:
-          name: Work folder
-          path: WORK/
+#      - name: Capture file access times AFTER run
+#        shell: bash
+#        run: |
+#          ./get-file-access-times-after.sh
+#      - name: Archive results
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: Work folder
+#          path: WORK/
 
       - name: collect files
         shell: bash
