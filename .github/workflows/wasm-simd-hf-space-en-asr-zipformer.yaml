@@ -60,7 +60,7 @@ jobs:
       - name: Build sherpa-onnx for WebAssembly (ASR)
         shell: bash
         run: |
-          .github/scripts/build-wasm-simd-asr.sh
+          ./build-wasm-simd-asr.sh
 
 #      - name: Capture file access times AFTER run
 #        shell: bash
